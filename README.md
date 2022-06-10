@@ -40,4 +40,4 @@ cd /path/to/HGF
 ```
 python setup.py install
 ```
-4. Once the installation is complete, take a look at the demo notebook provided
+4. Once the installation is complete, take a look at the demo notebook provided in `HGF Demo.ipynb`
