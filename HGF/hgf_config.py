@@ -12,7 +12,7 @@ import statsmodels.api as sm
 from scipy import optimize
 
 # load config files
-from hgf import *
+from HGF.hgf import *
 
 ###################
 # CONFIGURATIONS ##
