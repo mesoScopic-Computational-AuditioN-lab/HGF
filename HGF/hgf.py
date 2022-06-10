@@ -12,7 +12,7 @@ import pandas as pd
 from scipy import optimize
 
 # load config files
-from hgf_config import *
+from HGF.hgf_config import *
 
 ####################
 ## MAIN FUNCTIONS ##
