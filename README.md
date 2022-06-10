@@ -15,3 +15,29 @@ Psychiatry, 12:680811. https://doi.org/10.3389/fpsyt.2021.680811
 
 ----
 
+## Dependencies
+
+| Required | Package           | Remarks         |
+| ---------|-------------------|-----------------|
+| Yes      | [Python 3]        |                 |
+| Yes      | [NumPy]           |                 |
+| Yes      | [Statsmodels.api] |                 |
+| Yes      | [scipy]           | Opitimization   |
+| No       | [pandas]          | Plotting        |
+| No       | [seaborn]         | Plotting        |
+| No       | [matplotlib]      | Plotting        |
+
+----
+
+## Installation
+
+1. Clone the latest release and unzip it.
+2. Change directory in your command line:
+```
+cd /path/to/HGF
+```
+3. Install bvbabel:
+```
+python setup.py install
+```
+4. Once the installation is complete, take a look at the demo notebook provided
