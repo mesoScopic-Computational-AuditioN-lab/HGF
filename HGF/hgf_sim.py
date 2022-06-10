@@ -12,12 +12,12 @@ import statsmodels.api as sm
 from scipy import optimize
 
 # load config files and hgf update functions
-from hgf_config import *
-from hgf import *
-from hgf_pres import *
+from HGF.hgf_config import *
+from HGF.hgf import *
+from HGF.hgf_pres import *
 
 # load extra (non exclusive) helper function
-from hgf import _unpack_para
+from HGF.hgf import _unpack_para
 
 #######################
 ## MAIN FIT FUNCTION ##
