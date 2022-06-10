@@ -36,7 +36,7 @@ Psychiatry, 12:680811. https://doi.org/10.3389/fpsyt.2021.680811
 ```
 cd /path/to/HGF
 ```
-3. Install bvbabel:
+3. Install HGF:
 ```
 python setup.py install
 ```
