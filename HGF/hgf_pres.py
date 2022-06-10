@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # load extra (non exclusive) helper function
-from hgf import _sgm
+from HGF.hgf import _sgm
 
 ## Construct dataframe function
 
