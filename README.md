@@ -20,8 +20,8 @@ Psychiatry, 12:680811. https://doi.org/10.3389/fpsyt.2021.680811
 | Required | Package           | Remarks         |
 | ---------|-------------------|-----------------|
 | Yes      | [Python 3]        |                 |
-| Yes      | [NumPy]           |                 |
-| Yes      | [Statsmodels.api] |                 |
+| Yes      | [numpy]           |                 |
+| Yes      | [statsmodels.api] |                 |
 | Yes      | [scipy]           | Opitimization   |
 | No       | [pandas]          | Plotting        |
 | No       | [seaborn]         | Plotting        |
