@@ -3,7 +3,7 @@ Hierarchical Gaussian Filter (HGF) Toolbox
 
 ---
 
-A python implimentation of the HGF model created by Christoph Mathys <chmathys@ethz.ch>, 
+A python implimentation of the HGF model created by Christoph Mathys, 
 current Python implimentation was fully recoded for Python by Jorie van Haren <jjg.vanharen@maastrichtuniversity.nl>.
 Demo notebooks are made to give intuition of how to use the package.
 
