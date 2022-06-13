@@ -13,8 +13,8 @@ from scipy import optimize
 
 # load config files and hgf update functions
 from HGF.hgf_config import *
-from HGF.hgf import *
 from HGF.hgf_pres import *
+from HGF.hgf import *
 
 # load extra (non exclusive) helper function
 from HGF.hgf import _unpack_para
@@ -62,6 +62,13 @@ def fitModel(responses, inputs,
         for item in ['c_prc', 'c_obs', 'c_opt']:
             if item not in overwrite_opt: overwrite_opt[item] = {}
             r[item] = {**r[item], **overwrite_opt[item]}
+
+    # get functions / models to use from config settings 
+    r['c_prc'].update({'prc_fun' : _storedfunc(r['c_prc']['prc_fun']),
+                       'transp_prc_fun' : _storedfunc(r['c_prc']['transp_prc_fun'])})
+    r['c_obs'].update({'obs_fun' : _storedfunc(r['c_obs']['obs_fun']),
+                      'transp_obs_fun' : _storedfunc(r['c_obs']['transp_obs_fun'])})
+    r['c_opt'].update({'opt_fun' : _storedfunc(r['c_opt']['opt_fun'])})
 
     # replace placeholder parameters with calculated values
     r['c_prc']['priormus'] = np.array([r['plh']['p99991'] if i == 99991 else i for i in r['c_prc']['priormus']])
@@ -119,6 +126,25 @@ def fitModel(responses, inputs,
 
 
 ## Helper functions
+
+def _storedfunc(a):
+    """inside function, not to be called from outside
+    looks for function names (e.g. within a dict from settings
+    returns the actual to be used function
+    - feature or own functions should be added to this list"""
+    # create the list of functions, as found in hgf.py
+    funcdict = {'hgf_binary'            : hgf_binary,
+                'ehgf_binary'           : ehgf_binary,
+                'hgf'                   : hgf,
+                'ehgf'                  : ehgf,
+                'hgf_transp'            : hgf_transp,
+                'unitsq_sqm_transp'     : unitsq_sqm_transp,
+                'bayes_optimal_binary'  : bayes_optimal_binary,
+                'bayes_optimal'         : bayes_optimal,
+                'gaussian_obs'          : gaussian_obs,
+                'unitsq_sgm'            : unitsq_sgm,
+                'optimize.minimize'     : optimize.minimize}
+    return(funcdict[a])
 
 def _dataPrep(responses, inputs):
     """internal function, not to be used from outside

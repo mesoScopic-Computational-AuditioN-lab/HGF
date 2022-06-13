@@ -11,9 +11,6 @@ import sys
 import statsmodels.api as sm
 from scipy import optimize
 
-# load config files
-from HGF.hgf import *
-
 ###################
 # CONFIGURATIONS ##
 ###################
@@ -72,8 +69,8 @@ def hgf_binary_config():
     if len(c['priormus']) + len(c['priorsas']) != 2* expectedlength:
         raise Exception('hgf - Prior definition does not match number of levels.')
     
-    c['prc_fun'] = hgf_binary                 # model function name
-    c['transp_prc_fun'] = hgf_transp   # function name to transform percp. para > native space
+    c['prc_fun'] = 'hgf_binary'          # model function name
+    c['transp_prc_fun'] = 'hgf_transp'   # function name to transform percp. para > native space
     return(c)
 
 
@@ -129,9 +126,9 @@ def hgf_config():
     expectedlength = (3 * c['n_levels']) + (2 * (c['n_levels']-1)) + 2
     if len(c['priormus']) + len(c['priorsas']) != 2* expectedlength:
         raise Exception('hgf - Prior definition does not match number of levels.')
-    
-    c['prc_fun'] = hgf                 # model function name
-    c['transp_prc_fun'] = hgf_transp   # function name to transform percp. para > native space
+
+    c['prc_fun'] = 'hgf'                 # model function name
+    c['transp_prc_fun'] = 'hgf_transp'   # function name to transform percp. para > native space
     return(c)
 
 
@@ -186,9 +183,9 @@ def ehgf_config():
     expectedlength = (3 * c['n_levels']) + (2 * (c['n_levels']-1)) + 2
     if len(c['priormus']) + len(c['priorsas']) != 2* expectedlength:
         raise Exception('hgf - Prior definition does not match number of levels.')
-    
-    c['prc_fun'] = hgf                 # model function name
-    c['transp_prc_fun'] = hgf_transp   # function name to transform percp. para > native space
+
+    c['prc_fun'] = 'hgf'                 # model function name
+    c['transp_prc_fun'] = 'hgf_transp'   # function name to transform percp. para > native space
     return(c)
 
 
@@ -245,8 +242,8 @@ def ehgf_binary_config():
     if len(c['priormus']) + len(c['priorsas']) != 2* expectedlength:
         raise Exception('hgf - Prior definition does not match number of levels.')
     
-    c['prc_fun'] = hgf_binary                 # model function name
-    c['transp_prc_fun'] = hgf_transp   # function name to transform percp. para > native space
+    c['prc_fun'] = 'hgf_binary'          # model function name
+    c['transp_prc_fun'] = 'hgf_transp'   # function name to transform percp. para > native space
     
     return(c)
 
@@ -279,8 +276,8 @@ def unitsq_sgm_config():
     c['priormus'] = np.array([c['logzemu']])
     c['priorsas'] = np.array([c['logzesa']])
     
-    c['obs_fun'] = unitsq_sgm                 # model function name
-    c['transp_obs_fun'] = unitsq_sqm_transp   # function name to transform obs. para > native space
+    c['obs_fun'] = 'unitsq_sgm'                 # model function name
+    c['transp_obs_fun'] = 'unitsq_sqm_transp'   # function name to transform obs. para > native space
     return(c)
 
 
@@ -309,8 +306,8 @@ def gaussian_obs_config():
     c['priormus'] = np.array([c['logzemu']])
     c['priorsas'] = np.array([c['logzesa']])
     
-    c['obs_fun'] = gaussian_obs                 # model function name
-    c['transp_obs_fun'] = unitsq_sqm_transp   # function name to transform obs. para > native space
+    c['obs_fun'] = 'gaussian_obs'                 # model function name
+    c['transp_obs_fun'] = 'unitsq_sqm_transp'   # function name to transform obs. para > native space
     return(c)
 
 
@@ -333,8 +330,8 @@ def bayes_optimal_binary_config():
     c['priorsas'] = np.array([])
     
     # model name
-    c['obs_fun'] = bayes_optimal_binary
-    c['transp_obs_fun'] = bayes_optimal_binary
+    c['obs_fun'] = 'bayes_optimal_binary'
+    c['transp_obs_fun'] = 'bayes_optimal_binary'
     return(c)
 
 
@@ -357,8 +354,8 @@ def bayes_optimal_config():
     c['priorsas'] = np.array([])
     
     # model name
-    c['obs_fun'] = bayes_optimal
-    c['transp_obs_fun'] = bayes_optimal
+    c['obs_fun'] = 'bayes_optimal'
+    c['transp_obs_fun'] = 'bayes_optimal'
     return(c)
 
 
@@ -388,7 +385,7 @@ def quasinewton_optim_config():
     
     ##########################################
     
-    c['opt_fun'] = optimize.minimize
+    c['opt_fun'] = 'optimize.minimize'
     c['opt_method'] = 'BFGS'
     
     return(c)
